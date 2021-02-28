@@ -1,9 +1,9 @@
 // importing express
 var express = require("express");
 
-// importing routes
-const apiRoutes = ('./routes/api-routes');
-const htmlRoutes = ('./routes/html-routes');
+// importing routes - added require
+const apiRoutes = require('./routes/api-routes');
+const htmlRoutes = require('./routes/html-routes');
 
 // importing path to work with html routes
 const path = require("path");
@@ -12,12 +12,12 @@ const app = express();
 
 const PORT = process.env.PORT || 3000;
 
-
-app.all('/', function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    next();
-});
+// might not need
+// app.all('/', function (req, res, next) {
+//     res.header("Access-Control-Allow-Origin", "*");
+//     res.header("Access-Control-Allow-Headers", "X-Requested-With");
+//     next();
+// });
 
 // middleware
 app.use(express.urlencoded({ extended: true }));
