@@ -2,8 +2,8 @@
 var express = require("express");
 
 // importing routes
-const apiRoutes = ("./routes/apiRoutes");
-const htmlRoutes = ("./routes/htmlRoutes");
+const apiRoutes = ('./routes/api-routes');
+const htmlRoutes = ('./routes/html-routes');
 
 // importing path to work with html routes
 const path = require("path");
@@ -25,9 +25,9 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // use public folder for static files using html and api routes
-app.use("/index.js", express.static(path.join(__dirname, "../public/index.js")));
-app.use("/api", htmlRoutes);
-app.use("/", htmlRoutes);
+app.use('/index.js', express.static(path.join(__dirname, './public/index.js')));
+app.use('/api', apiRoutes);
+app.use('/', htmlRoutes);
 
 // let us know this app is listening @ PORT 3000
 app.listen(PORT, function () {
